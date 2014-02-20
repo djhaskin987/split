@@ -12,7 +12,11 @@ using namespace std;
 void usage()
 {
     cerr << "Usage: sample <infile> <outfile> <percentage>" << endl
-        << "  where <percentage> is a number between 0 and 1." << endl;
+        << "  where <percentage> is a number between 0 and 1." << endl
+        << "  This program takes an input file and randomly samples the lines in it," << endl
+        << "  printing out randomly selected lines to the output file." << endl
+        << "  The rough percentage of lines randomly selected for the output" << endl
+        << "  file is <percentage>." << endl;
     exit(1);
 }
 
