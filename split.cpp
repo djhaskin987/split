@@ -3,7 +3,6 @@
 #include <sstream>
 #include <ctime>
 #include <cstdlib>
-#include <random>
 #include <cstring>
 #include <string>
 
@@ -17,8 +16,7 @@ void usage()
 
 unsigned long long numLines(std::string filename)
 {
-    ifstream myfile;
-    myfile.open(filename);
+    ifstream myfile(filename.c_str());
     if (!myfile.is_open())
     {
         cerr << "Error opening file '" << filename.c_str() << "' for reading." << endl;
@@ -65,8 +63,7 @@ int main(int argc, char *argv[])
     cout << "Line numbers: " << lineNumber << endl;;
     cout << "part sizes: " << part << endl;
 
-    ifstream myfile;
-    myfile.open(argv[3]);
+    ifstream myfile(argv[3]);
     if (!myfile.is_open())
     {
         cerr << "Error opening file '" << argv[3] << "' for reading. " << endl;
@@ -77,7 +74,7 @@ int main(int argc, char *argv[])
     {
         stringstream filename;
         filename << argv[4] << ".split" << i;
-        ofstream out(filename.str());
+        ofstream out(filename.str().c_str());
         if (!out.is_open())
         {
             cerr << "Error opening file '" << filename.str().c_str() << "' for writing." << endl;
